@@ -1,5 +1,14 @@
 import React from "react";
 
+const copy = string => {
+  const dummyNode = document.createElement("textarea");
+  document.body.appendChild(dummyNode);
+  dummyNode.value = string;
+  dummyNode.select();
+  document.execCommand("copy");
+  document.body.removeChild(dummyNode);
+};
+
 export const DataRefTable = ({ values }) => (
   <table>
     <thead>
@@ -14,7 +23,12 @@ export const DataRefTable = ({ values }) => (
     <tbody>
       {values.map(row => (
         <tr key={row.n}>
-          <td>{row.n}</td>
+          <td>
+            {row.n}{" "}
+            <button className={"copy-btn"} onClick={() => copy(row.n)}>
+              Copy
+            </button>
+          </td>
           <td>{row.t}</td>
           <td>{row.w}</td>
           <td>{row.u}</td>

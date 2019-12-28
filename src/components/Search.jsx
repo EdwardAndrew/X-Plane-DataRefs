@@ -10,12 +10,12 @@ export const Search = ({ onChange, deBounceTime, placeholder }) => {
   });
 
   return (
-    <input
-      type="text"
-      value={value}
-      placeholder={placeholder}
-      onChange={e => setValue(e.target.value)}
-      className={'search'}
-    ></input>
+      <input
+        type="text"
+        value={value}
+        placeholder={placeholder}
+        onChange={e => setValue(e.target.value)}
+        className={"searchbox"}
+      ></input>
   );
 };
